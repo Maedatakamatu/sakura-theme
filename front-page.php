@@ -65,20 +65,19 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
     
 
 
-
         <section id="sec4-newblog">
             <h1>新着記事</h1>
             <div class="blog">
-                <!-- 【課題3の答え】 -->
+
+
         <?php if(have_posts()): ?>
         <?php while(have_posts()): the_post(); ?>
-        <!-- 繰り返し処理する内容 -->
         <div class="blog-content" >
-            <img src="<?php echo get_template_directory_uri(); ?>/img/thumb_01.png" alt="ブログ1サムネイル">
+            <?php the_post_thumbnail('thumbnail'); ?> 
             <div class="blog-info">
                 <h2><?php the_title(); ?></h2>
                 <p><?php the_excerpt(); ?></p>
-                <a href="#"><?php the_category(); ?></a><a href="#">2019.07.25</a>
+                <a href="#"><?php the_tags(); ?></a><a href="#"><?php the_time(); ?></a>
             </div>
         </div>
         <?php endwhile; ?>
